@@ -1,0 +1,29 @@
+{
+  "name": "managing-gateways-musalasoft",
+  "version": "1.0.0",
+  "description": "This sample project is managing gateways - master devices that control multiple peripheral devices.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server/server.js",
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "author": "Jonathan Luis Rodriguez",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "config": "^3.3.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "helmet": "^5.0.2",
+    "mocha": "^9.2.0",
+    "mongoose": "^6.2.1",
+    "mongoose-ip-address": "^0.0.6",
+    "mongoose-unique-validator": "^3.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^1.19.4",
+    "sinon": "^13.0.1"
+  }
+}
