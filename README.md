@@ -34,3 +34,20 @@ Each peripheral device has:
 1. Clone this repo: `git clone https://github.com/D4rk4ns/managing-gateways.git`
 2. Move to the cloned directory: `cd `
 
+
+### Production environment
+
+1. Rename the file `.env.template` to `.env` and adjust the variables values properly
+2. Run ` `
+3. The app should be ready on http://localhost
+
+### Development environment
+
+1. Rename the file `.env.template` to `.env` and adjust the variables values properly
+2. Execute `npm install` to get all dependencies including dev ones
+3.
+4. The app should be ready on http://localhost
+
+### Testing environment
+1. Rename the file `.env.template` to `.env-test` and adjust the variables values properly
+2. Run `npm test`
