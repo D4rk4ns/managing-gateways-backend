@@ -14,6 +14,7 @@ const express           = require('express'),
 /****	Statements 	***/
 
 app.set('port', port);
+app.disable('x-powered-by');
 
 
 /****	Database connection 	***/
@@ -36,10 +37,7 @@ if(config.util.getEnv('NODE_ENV') !== 'test') {
 app.use(helmet());
 
 //Parse application/json and look for raw text                                        
-app.use(bodyParser.json());                                     
-app.use(bodyParser.urlencoded({extended: true}));               
-app.use(bodyParser.text());                                    
-app.use(bodyParser.json({ type: 'application/json'}));  
+app.use(express.json());
 
 // Enabling CORS for all requests
 app.use(cors({origin:'*', exposedHeaders : "Content-Range,0-20/20"}));
@@ -68,8 +66,11 @@ app.get('/', function (req, res){
 
 
 /***  Puerto de Escucha ***/
-app.listen(3000, () => {
-    console.log('Backend server running in port: ' + port + ', state: \x1b[32m%s\x1b[0m', 'online');
-});
+app.listen(
+    app.get("port"),
+    () => {
+        console.info("✅  Server started on port", app.get("port"));
+    }
+);
 
 module.exports = app; //for testing
