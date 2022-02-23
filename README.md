@@ -1,4 +1,4 @@
-# Managing Gateways
+# Managing Gateways - Backend
 
 
 
@@ -33,21 +33,24 @@ Each peripheral device has:
 
 1. Clone this repo: `git clone https://github.com/D4rk4ns/managing-gateways.git`
 2. Move to the cloned directory: `cd `
+3. Execute `npm install`
 
 
 ### Production environment
 
 1. Rename the file `.env.template` to `.env` and adjust the variables values properly
-2. Run ` `
-3. The app should be ready on http://localhost
+2. Run `npm start`
+3. The app should be ready on http://localhost:3000
 
 ### Development environment
 
 1. Rename the file `.env.template` to `.env` and adjust the variables values properly
 2. Execute `npm install` to get all dependencies including dev ones
-3.
-4. The app should be ready on http://localhost
+3. Then execute `nodemon start`
+4. The app should be ready on http://localhost:3000
 
 ### Testing environment
+
 1. Rename the file `.env.template` to `.env-test` and adjust the variables values properly
-2. Run `npm test`
+2. Execute `npm install` to get all dependencies including test ones
+3. Run `npm test`
