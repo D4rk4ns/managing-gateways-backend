@@ -67,7 +67,7 @@ app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "src")));
 
 app.get('/*', function (req, res){
-    res.sendFile(__dirname+"/index.html");
+    res.sendFile(path.join(__dirname, "src", "index.html"));
 });
 /****	Heroku purposes only 	***/
 
