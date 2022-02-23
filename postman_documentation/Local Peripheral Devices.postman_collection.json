@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "2f5a15a0-4d04-4f4c-af45-a1c1cf38a13b",
+		"name": "Local Peripheral Devices",
+		"description": "## About this collection\n\nThis collection was designed to work with the local version of the backend.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET | GetDevices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:3000/device",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET | GetDevice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:3000/device/621133050f2f4704b5be2455",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"device",
+						"621133050f2f4704b5be2455"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST | CreateDevice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "uid",
+							"value": "1234567",
+							"type": "text"
+						},
+						{
+							"key": "vendor",
+							"value": "Revolucion",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "statususd",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "gateway",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/device",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT | UpdateDevice",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "uid",
+							"value": "1346587",
+							"type": "text"
+						},
+						{
+							"key": "vendor",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "statususd",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/device/6210a215d0c514cf58c923d5",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"device",
+						"6210a215d0c514cf58c923d5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE | DeleteDevice",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:3000/device/62109e9d85ff74d0fc6b663d",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"device",
+						"62109e9d85ff74d0fc6b663d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
