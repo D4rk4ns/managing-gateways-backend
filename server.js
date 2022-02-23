@@ -1,16 +1,28 @@
 /****	Statements 	***/
 const express           = require('express'),
     app                 = express(),
-    port                = parseInt(process.env.PORT, 10) || 3000,
+    dotenv              = require('dotenv').config(),
+    mongoose            = require('mongoose'),
+    port                = process.env.PORT || 3000,
+    uri                 = process.env.ATLAS_URI,
     morgan              = require('morgan'),
     bodyParser          = require('body-parser'),
     cors                = require('cors'),
     helmet              = require('helmet'),
-    { mongoose }        = require('./config/database'),
     config              = require('config'); 
+
 /****	Statements 	***/
 
 app.set('port', port);
+
+
+/****	Database connection 	***/
+    mongoose.connect(uri);
+    mongoose.connection.once('open', () => {
+        console.log('Database: online');
+    });
+
+/****	Database connection 	***/
 
 /****	Middlewares 	***/
 
