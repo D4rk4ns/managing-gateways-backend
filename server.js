@@ -9,6 +9,7 @@ const express           = require('express'),
     bodyParser          = require('body-parser'),
     cors                = require('cors'),
     helmet              = require('helmet'),
+    bootstrap           = require('bootstrap'),
     config              = require('config'); 
 
 /****	Statements 	***/
