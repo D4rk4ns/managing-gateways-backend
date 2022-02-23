@@ -1,7 +1,7 @@
 /****	Statements 	***/
 const express           = require('express'),
     app                 = express(),
-    port                = parseInt(process.env.PORT, 10) || 5000,
+    port                = parseInt(process.env.PORT, 10) || 3000,
     morgan              = require('morgan'),
     bodyParser          = require('body-parser'),
     cors                = require('cors'),
