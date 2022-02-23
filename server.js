@@ -62,8 +62,8 @@ const favicon = require("express-favicon");
 const path    = require("path");
 
 // __dirname is the current directory from where the script is running
-app.use(favicon(__dirname + "/src/favicon.ico"));
 app.use(express.static(__dirname));
+app.use(favicon("./src/favicon.ico"));
 app.use(express.static(path.join(__dirname, "src")));
 
 app.get('/*', function (req, res){
