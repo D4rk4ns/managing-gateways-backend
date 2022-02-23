@@ -41,9 +41,18 @@ let peripheralDeviceRoutes = require('./routes/peripheralDevice');
 /****	Importing Routes 	***/
 
 /****	Routes 	***/
-app.use('/api', gatewayRoutes);
-app.use('/api', peripheralDeviceRoutes);
+app.use('/', gatewayRoutes);
+app.use('/', peripheralDeviceRoutes);
+
+app.use("/src", express.static('./src/'));
+
+app.get('/', function (req, res){
+    res.sendFile(__dirname+"/index.html");
+});
+
 /****	Routes 	***/
+
+
 
 
 /***  Puerto de Escucha ***/
