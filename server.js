@@ -54,14 +54,22 @@ let peripheralDeviceRoutes = require('./routes/peripheralDevice');
 app.use('/', gatewayRoutes);
 app.use('/', peripheralDeviceRoutes);
 
-app.use("/src", express.static('./src/'));
-
-app.get('/', function (req, res){
-    res.sendFile(__dirname+"/index.html");
-});
 
 /****	Routes 	***/
 
+/****	Heroku purposes only 	***/
+const favicon = require("express-favicon");
+const path    = require("path");
+
+// __dirname is the current directory from where the script is running
+app.use(favicon(__dirname + "/src/favicon.ico"));
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "src")));
+
+app.get('/*', function (req, res){
+    res.sendFile(__dirname+"/index.html");
+});
+/****	Heroku purposes only 	***/
 
 
 
