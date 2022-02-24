@@ -6,7 +6,6 @@ const express           = require('express'),
     port                = process.env.PORT || 3000,
     uri                 = process.env.ATLAS_URI,
     morgan              = require('morgan'),
-    bodyParser          = require('body-parser'),
     cors                = require('cors'),
     helmet              = require('helmet'),
     config              = require('config'); 
