@@ -25,8 +25,6 @@ Each peripheral device has:
 - status - online/offline.
 
 ## Stack
-
-- Frontend: React.js + Bootstrap 5
 - Backend: NodeJS + Express + MongoDB REST API 
 
 ## How to?
