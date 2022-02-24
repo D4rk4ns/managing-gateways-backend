@@ -4,12 +4,10 @@ const mongoose          = require('mongoose'),
     dotenv              = require('dotenv').config();
     
 
-    mongoose.connection.openUri(uri , (err, res) => {
-
-        if (err) throw err.message;
-
+    mongoose.connect(uri);
+    mongoose.connection.once('open', () => {
         console.log('Database: online');
-
     });
+    
 module.exports = mongoose;
 

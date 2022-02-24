@@ -2,11 +2,11 @@
   "name": "managing-gateways-musalasoft",
   "version": "1.0.0",
   "description": "This sample project is managing gateways - master devices that control multiple peripheral devices.",
-  "main": "server.js",
+  "main": "./backend/server.js",
   "scripts": {
     "dev": "nodemon server/server.js",
-    "test": "mocha",
-    "start": "node server.js"
+    "test": "mocha ./backend/test/*.test.js",
+    "start": "node ./backend/server.js"
   },
   "author": "Jonathan Luis Rodriguez",
   "license": "ISC",
