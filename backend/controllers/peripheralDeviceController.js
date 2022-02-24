@@ -8,7 +8,7 @@ const Gateway    = require('../models/gateway');
 
 function getDevices(req, res){
 
-    Peripheral.find({},"-_id -__v")
+    Peripheral.find({},"-__v")
     .exec (
         (err, peripheral) =>{
     
@@ -69,7 +69,7 @@ function createDevice(req, res){
 
             uid             : body.uid,
             vendor          : body.vendor,
-            date            : body.date,
+            date            : Date.parse(body.date),
             statusd         : body.statusd,
             gateway         : body.gateway
             
@@ -123,7 +123,7 @@ function updateDevice(req, res){
         
             peripheral.uid              = body.uid                ||  peripheral.uid;
             peripheral.vendor           = body.vendor             ||  peripheral.vendor;
-            peripheral.date             = body.date               ||  peripheral.date;
+            peripheral.date             = Date.parse(body.date)               ||  peripheral.date;
             peripheral.statusd          = body.statusd            ||  peripheral.statusd;
             peripheral.gateway          = body.gateway            ||  peripheral.gateway;
 

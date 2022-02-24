@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "dbb5b672-5e9e-419f-b3e5-88d2819f7c5f",
+		"name": "Local Gateway",
+		"description": "## About this collection\n\nThis collection was designed to work with the local version of the backend.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET | GetGateways",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:3000/gateway",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET | GetGateway",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:3000/gateway/62109d0f89a2012e1476efdc",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gateway",
+						"62109d0f89a2012e1476efdc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST | CreateGateway",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "serialNumber",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "gatewayName",
+							"value": "Central",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "190.6.5.40",
+							"type": "text"
+						},
+						{
+							"key": "peripheralDevice",
+							"value": "62109cbb89a2012e1476efd7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/gateway",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gateway"
+					]
+				},
+				"description": "With this POST request you will be creating a new Gateway, so you'll have to give as params:\r\n-serialNumber      : Number\r\n-gatewayName       : String\r\n-address           : String\r\n-peripheralDevice  : Id list\r\n\r\nserialNumber is unique\r\nFields required: serialNumber and address"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT | UpdateGateway",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "serialNumber",
+							"value": "5kPcNfYNA",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gatewayName",
+							"value": "Thorpesin",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "192.168.34.100",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/gateway/6211557e5b5103472842b9fc",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gateway",
+						"6211557e5b5103472842b9fc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT | Add a Peripheral device to a Gateway",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "peripheralDevice",
+							"value": "62109cbb89a2012e1476efd5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/gateway/6211557e5b5103472842b9fc/add",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gateway",
+						"6211557e5b5103472842b9fc",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE | DeleteGateway",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:3000/gateway/62109d0f89a2012e1476efdc",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gateway",
+						"62109d0f89a2012e1476efdc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE| Remove a Peripheral device from a Gateway",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "peripheralDevice",
+							"value": "62109cbb89a2012e1476efd5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/gateway/6211557e5b5103472842b9fc/remove",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gateway",
+						"6211557e5b5103472842b9fc",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

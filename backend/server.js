@@ -1,16 +1,29 @@
 /****	Statements 	***/
 const express           = require('express'),
     app                 = express(),
-    port                = parseInt(process.env.PORT, 10) || 3000,
+    dotenv              = require('dotenv').config(),
+    mongoose            = require('mongoose'),
+    port                = process.env.PORT || 3000,
+    uri                 = process.env.ATLAS_URI,
     morgan              = require('morgan'),
     bodyParser          = require('body-parser'),
     cors                = require('cors'),
     helmet              = require('helmet'),
-    { mongoose }        = require('./config/database'),
-    config              = require('config'); //we load the db location from the JSON files
+    config              = require('config'); 
+
 /****	Statements 	***/
 
 app.set('port', port);
+app.disable('x-powered-by');
+
+
+/****	Database connection 	***/
+    mongoose.connect(uri);
+    mongoose.connection.once('open', () => {
+        console.log('Database: online');
+    });
+
+/****	Database connection 	***/
 
 /****	Middlewares 	***/
 
@@ -28,7 +41,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));               
 app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));  
-
 // Enabling CORS for all requests
 app.use(cors());
 
@@ -41,14 +53,34 @@ let peripheralDeviceRoutes = require('./routes/peripheralDevice');
 /****	Importing Routes 	***/
 
 /****	Routes 	***/
-app.use('/api', gatewayRoutes);
-app.use('/api', peripheralDeviceRoutes);
+app.use('/', gatewayRoutes);
+app.use('/', peripheralDeviceRoutes);
+
+
 /****	Routes 	***/
+
+/****	Heroku purposes only 	***/
+const favicon = require("express-favicon");
+const path    = require("path");
+
+// __dirname is the current directory from where the script is running
+app.use(express.static(__dirname));
+app.use(favicon("./src/favicon.ico"));
+app.use(express.static(path.join(__dirname, "src")));
+
+app.get('/*', function (req, res){
+    res.sendFile(path.join(__dirname, "src", "index.html"));
+});
+/****	Heroku purposes only 	***/
+
 
 
 /***  Puerto de Escucha ***/
-app.listen(3000, () => {
-    console.log('Backend server running in port: ' + port + ', state: \x1b[32m%s\x1b[0m', 'online');
-});
+app.listen(
+    app.get("port"),
+    () => {
+        console.info("✅  Server started on port", app.get("port"));
+    }
+);
 
 module.exports = app; //for testing

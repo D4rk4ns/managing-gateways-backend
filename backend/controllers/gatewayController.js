@@ -7,7 +7,7 @@ const Peripheral = require('../models/peripheralDevice');
 
 function getGateways(req, res){
 
-    Gateway.find({},"-_id -__v")
+    Gateway.find({},"-__v")
     .exec (
 
         (err, gateways) =>{
@@ -39,7 +39,7 @@ function getGateway(req, res){
     let body = req.params;
     
     Gateway.findById(body.id)
-        .populate('peripheralDevice', '-_id -__v')
+        .populate('peripheralDevice', '-__v')
     
         .exec (
             (err, gateways) =>{
@@ -148,7 +148,7 @@ function updateGateway(req, res) {
             gateway.peripheralDevice = gateway.peripheralDevice;
         }
         else{
-            res.status(404).json({
+            return res.status(404).json({
                 errors: {message: "You can't perform this operation here"}
             });
         }
@@ -159,11 +159,12 @@ function updateGateway(req, res) {
                     errors: err.message
                 });
             }
-
-            res.status(200).json({
-                message: "Gateway updated!",
-                gateways: savedGateway
-            });
+            else{
+                return res.status(200).json({
+                        message: "Gateway updated!",
+                        gateways: savedGateway
+                });
+            }
         });
 
     });
@@ -197,7 +198,7 @@ function deleteGateway(req, res){
 
 
 
-        res.status(200).json({
+        return res.status(200).json({
             ok          : true,
             message     : "Gateway successfully deleted!",
             gateways     : deletedGateway
@@ -254,7 +255,7 @@ function addPeripheral(req, res){
                 });
             }
 
-            res.status(200).json({
+            return res.status(200).json({
                 ok          : true,
                 message     : "Peripheral device successfully added to the list!",
                 gateways     : addedGateway
@@ -312,7 +313,7 @@ function removePeripheral(req, res){
                     errors: err.message
                 });
             }
-            res.status(200).json({
+            return res.status(200).json({
                 ok          : true,
                 message     : "Peripheral device successfully removed of the list!",
                 gateways     : removedGateway
