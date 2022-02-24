@@ -8,7 +8,7 @@ const Gateway    = require('../models/gateway');
 
 function getDevices(req, res){
 
-    Peripheral.find({},"-_id -__v")
+    Peripheral.find({},"-__v")
     .exec (
         (err, peripheral) =>{
     

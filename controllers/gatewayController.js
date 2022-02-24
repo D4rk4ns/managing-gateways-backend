@@ -7,7 +7,7 @@ const Peripheral = require('../models/peripheralDevice');
 
 function getGateways(req, res){
 
-    Gateway.find({},"-_id -__v")
+    Gateway.find({},"-__v")
     .exec (
 
         (err, gateways) =>{
@@ -39,7 +39,7 @@ function getGateway(req, res){
     let body = req.params;
     
     Gateway.findById(body.id)
-        .populate('peripheralDevice', '-_id -__v')
+        .populate('peripheralDevice', '-__v')
     
         .exec (
             (err, gateways) =>{
