@@ -65,11 +65,11 @@ const path    = require("path");
 
 // __dirname is the current directory from where the script is running
 app.use(express.static(__dirname));
-app.use(favicon("./src/favicon.ico"));
-app.use(express.static(path.join(__dirname, "src")));
+app.use(favicon("./public/favicon.ico"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/*', function (req, res){
-    res.sendFile(path.join(__dirname, "src", "index.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 /****	Heroku purposes only 	***/
 
