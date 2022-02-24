@@ -38,8 +38,6 @@ app.use(helmet());
 
 //Parse application/json and look for raw text                                        
 app.use(bodyParser.json());                                     
-app.use(bodyParser.urlencoded({extended: false}));               
-app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));  
 
 // Enabling CORS for all requests
