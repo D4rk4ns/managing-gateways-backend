@@ -123,7 +123,7 @@ function updateDevice(req, res){
         
             peripheral.uid              = body.uid                ||  peripheral.uid;
             peripheral.vendor           = body.vendor             ||  peripheral.vendor;
-            peripheral.date             = body.date || Date.now()               ||  peripheral.date;
+            peripheral.date             = body.date               ||  peripheral.date;
             peripheral.statusd          = body.statusd            ||  peripheral.statusd;
             peripheral.gateway          = body.gateway            ||  peripheral.gateway;
 
