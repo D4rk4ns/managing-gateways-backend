@@ -64,22 +64,22 @@ the different functions of the REST API.
 
 | API Method       | METHOD |Route                |
 | -----------      | ------ | -----------         |
-| getGateways      | GET    | /gateway            |
-| getGateway       | GET    | /gateway/:id        |
-| createGateway    | POST   | /gateway            |
-| updateGateway    | PUT    | /gateway/:id        |
-| deleteGateway    | DELETE | /gateway/:id        |
-| addPeripheral    | PUT    | /gateway/:id/add    |
-| removePeripheral | DELETE | /gateway/:id/remove |
+| getGateways      | `GET`    | /gateway            |
+| getGateway       | `GET`    | /gateway/:id        |
+| createGateway    | `POST`   | /gateway            |
+| updateGateway    | `PUT`    | /gateway/:id        |
+| deleteGateway    | `DELETE` | /gateway/:id        |
+| addPeripheral    | `PUT`    | /gateway/:id/add    |
+| removePeripheral | `DELETE` | /gateway/:id/remove |
 
 </td><td>
 
 | API Method       | METHOD |Route                |
 | -----------      | ------ | -----------         |
-| getDevices       | GET    | /device             |
-| getDevice        | GET    | /device/:id         |
-| createDevice     | POST   | /device             |
-| updateDevice     | PUT    | /device/:id         |
-| deleteDevice     | DELETE | /device/:id         |
+| getDevices       | `GET`    | /device             |
+| getDevice        | `GET`    | /device/:id         |
+| createDevice     | `POST`   | /device             |
+| updateDevice     | `PUT`    | /device/:id         |
+| deleteDevice     | `DELETE` | /device/:id         |
 
 </td></tr> </table>
