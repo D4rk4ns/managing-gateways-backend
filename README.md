@@ -49,6 +49,30 @@ Each peripheral device has:
 
 ### Testing environment
 
-1. Rename the file `.env.template` to `.env-test` and adjust the variables values properly
+1. Rename the file `.env.template` to `.env` and adjust the variables values properly
 2. Execute `npm install` to get all dependencies including test ones
 3. Run `npm test`
+
+### Live demo
+You can use https://managing-gateways-backend.herokuapp.com/ as a live demo to test
+the different functions of the REST API.
+
+#### Gateway
+| API Method       | METHOD |Route                |
+| -----------      | ------ | -----------         |
+| getGateways      | GET    | /gateway            |
+| getGateway       | GET    | /gateway/:id        |
+| createGateway    | POST   | /gateway            |
+| updateGateway    | PUT    | /gateway/:id        |
+| deleteGateway    | DELETE | /gateway/:id        |
+| addPeripheral    | PUT    | /gateway/:id/add    |
+| removePeripheral | DELETE | /gateway/:id/remove |
+
+#### Device
+| API Method       | METHOD |Route                |
+| -----------      | ------ | -----------         |
+| getDevices       | GET    | /device             |
+| getDevice        | GET    | /device/:id         |
+| createDevice     | POST   | /device             |
+| updateDevice     | PUT    | /device/:id         |
+| deleteDevice     | DELETE | /device/:id         |
