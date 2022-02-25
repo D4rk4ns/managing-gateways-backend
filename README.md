@@ -57,7 +57,11 @@ Each peripheral device has:
 You can use https://managing-gateways-backend.herokuapp.com/ as a live demo to test
 the different functions of the REST API.
 
-#### Gateway
+#### Data you may want to consider
+<table>
+<tr><th>Gateway </th><th>Device </th></tr>
+<tr><td>
+
 | API Method       | METHOD |Route                |
 | -----------      | ------ | -----------         |
 | getGateways      | GET    | /gateway            |
@@ -68,7 +72,8 @@ the different functions of the REST API.
 | addPeripheral    | PUT    | /gateway/:id/add    |
 | removePeripheral | DELETE | /gateway/:id/remove |
 
-#### Device
+</td><td>
+
 | API Method       | METHOD |Route                |
 | -----------      | ------ | -----------         |
 | getDevices       | GET    | /device             |
@@ -76,3 +81,5 @@ the different functions of the REST API.
 | createDevice     | POST   | /device             |
 | updateDevice     | PUT    | /device/:id         |
 | deleteDevice     | DELETE | /device/:id         |
+
+</td></tr> </table>
