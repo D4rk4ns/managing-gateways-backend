@@ -147,11 +147,7 @@ function updateGateway(req, res) {
         if(!body.peripheralDevice){
             gateway.peripheralDevice = gateway.peripheralDevice;
         }
-        else{
-            return res.status(404).json({
-                errors: {message: "You can't perform this operation here"}
-            });
-        }
+        
 
         gateway.save((err, savedGateway) => {
             if (err) {
