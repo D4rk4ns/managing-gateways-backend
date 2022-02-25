@@ -24,7 +24,7 @@ describe('Gateway', () => {
     describe('/GET Gateways', () => {
         it('It should GET all the gateways', (done) => {
             chai.request(server)
-                .get('/api/gateway')
+                .get('/gateway')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
@@ -50,7 +50,7 @@ describe('Gateway', () => {
 
             gateway.save((err, gateway) => {
                 chai.request(server)
-                    .get('/api/gateway/' + gateway.id)
+                    .get('/gateway/' + gateway.id)
                     .send(gateway)
                     .end((err, res) => {
                             res.should.have.status(200);
@@ -79,7 +79,7 @@ describe('Gateway', () => {
 
             gateway.save((err, gateway) => {
                 chai.request(server)
-                    .post('/api/gateway')
+                    .post('/gateway')
                     .send(gateway)
                     .end((err, res) => {
                         res.should.have.status(400);
@@ -98,7 +98,7 @@ describe('Gateway', () => {
                 address         : "192.168.0.1"
             };
                 chai.request(server)
-                    .post('/api/gateway')
+                    .post('/gateway')
                     .send(gateway)
                     .end((err, res) => {
                         res.should.have.status(200);
@@ -129,7 +129,7 @@ describe('Gateway', () => {
 
             gateway.save((err, gateway) => {
                 chai.request(server)
-                .put('/api/gateway/' + gateway.id)
+                .put('/gateway/' + gateway.id)
                 .send({
                     serialNumber    : "XoZDLF63",
                     gatewayName     : "Northpass",
@@ -161,7 +161,7 @@ describe('Gateway', () => {
 
             gateway.save((err, gateway) => {
                 chai.request(server)
-                .delete('/api/gateway/' + gateway.id)
+                .delete('/gateway/' + gateway.id)
                 .end((err, res) => {
                         res.should.have.status(200);
                         res.body.should.be.a('object');
@@ -188,7 +188,7 @@ describe('Gateway', () => {
 
             gateway.save((err, gateway) => {
                 chai.request(server)
-                .put('/api/gateway/' + gateway.id+'/add')
+                .put('/gateway/' + gateway.id+'/add')
                 .send()
                 .end((err, res) => {
                         res.should.have.status(400);
@@ -209,7 +209,7 @@ describe('Gateway', () => {
 
             gateway.save((err, gateway) => {
                 chai.request(server)
-                .put('/api/gateway/' + gateway.id+'/add')
+                .put('/gateway/' + gateway.id+'/add')
                 .send({
                     peripheralDevice : "62109cbb89a2012e1476efd5"
                 })
@@ -238,7 +238,7 @@ describe('Gateway', () => {
 
             gateway.save((err, gateway) => {
                 chai.request(server)
-                .delete('/api/gateway/' + gateway.id+'/remove')
+                .delete('/gateway/' + gateway.id+'/remove')
                 .send()
                 .end((err, res) => {
                         res.should.have.status(400);
@@ -260,7 +260,7 @@ describe('Gateway', () => {
 
             gateway.save((err, gateway) => {
                 chai.request(server)
-                .delete('/api/gateway/'+ gateway.id+'/remove')
+                .delete('/gateway/'+ gateway.id+'/remove')
                 .send({
                     peripheralDevice : "62109cbb89a2012e1476efd5"
                 })
