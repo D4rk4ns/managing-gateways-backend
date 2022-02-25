@@ -26,7 +26,7 @@ describe('Peripheral Devices', () => {
     describe('/GET Devices', () => {
         it('It should GET all the peripheral devices', (done) => {
             chai.request(server)
-                .get('/api/device')
+                .get('/device')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
@@ -51,7 +51,7 @@ describe('Peripheral Devices', () => {
             device.save((err, device) => {
                 
                 chai.request(server)
-                    .get('/api/device/' + device.id)
+                    .get('/device/' + device.id)
                     .send(device)
                     .end((err, res) => {
                             res.should.have.status(200);
@@ -77,7 +77,7 @@ describe('Peripheral Devices', () => {
 
             device.save((err, device) => {
                 chai.request(server)
-                    .post('/api/device')
+                    .post('/device')
                     .send(device)
                     .end((err, res) => {
                         res.should.have.status(400);
@@ -96,7 +96,7 @@ describe('Peripheral Devices', () => {
                 statusd         : true
             };
                 chai.request(server)
-                    .post('/api/device')
+                    .post('/device')
                     .send(device)
                     .end((err, res) => {
                         res.should.have.status(200);
@@ -124,7 +124,7 @@ describe('Peripheral Devices', () => {
 
             device.save((err, device) => {
                 chai.request(server)
-                .put('/api/device/' + device.id)
+                .put('/device/' + device.id)
                 .send({
                     uid             : Math.floor(1000 + Math.random() * 90000000),
                     vendor          : "Darkline",
@@ -154,7 +154,7 @@ describe('Peripheral Devices', () => {
 
             device.save((err, device) => {
                 chai.request(server)
-                .delete('/api/device/' + device.id)
+                .delete('/device/' + device.id)
                 .end((err, res) => {
                         res.should.have.status(200);
                         res.body.should.be.a('object');
