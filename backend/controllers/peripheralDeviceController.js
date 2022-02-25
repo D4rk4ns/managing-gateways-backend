@@ -69,7 +69,7 @@ function createDevice(req, res){
 
             uid             : body.uid,
             vendor          : body.vendor,
-            date            : Date.parse(body.date),
+            date            : body.date || Date.now(),
             statusd         : body.statusd,
             gateway         : body.gateway
             
@@ -123,7 +123,7 @@ function updateDevice(req, res){
         
             peripheral.uid              = body.uid                ||  peripheral.uid;
             peripheral.vendor           = body.vendor             ||  peripheral.vendor;
-            peripheral.date             = Date.parse(body.date)               ||  peripheral.date;
+            peripheral.date             = body.date || Date.now()               ||  peripheral.date;
             peripheral.statusd          = body.statusd            ||  peripheral.statusd;
             peripheral.gateway          = body.gateway            ||  peripheral.gateway;
 
