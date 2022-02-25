@@ -57,7 +57,7 @@ Each peripheral device has:
 You can use https://managing-gateways-backend.herokuapp.com/ as a live demo to test
 the different functions of the REST API.
 
-#### Data you may want to consider
+#### Data you may want to consider  --> More info check postman_documentation
 <table>
 <tr><th>Gateway </th><th>Device </th></tr>
 <tr><td>
@@ -83,3 +83,5 @@ the different functions of the REST API.
 | deleteDevice     | `DELETE` | /device/:id         |
 
 </td></tr> </table>
+
+#### You can use populateDevice and populateGateway to populate the database with information for testing.
