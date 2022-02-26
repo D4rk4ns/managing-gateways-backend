@@ -4,34 +4,6 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
-  test:
-    name: 'Node.js v${{ matrix.node }}'
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-        mongodb-version: ['4.2', '4.4']
-    steps:
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '${{ matrix.node }}'
-      - uses: actions/checkout@v2
-      - name: 'Cache node_modules'
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-v${{ matrix.node }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-v${{ matrix.node }}-
-      - name: Install Dependencies
-        run: npm install
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.7.0
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
-      - name: Run All Node.js Tests
-        run: npm run test
-        
   build:
     runs-on: ubuntu-latest
 
@@ -43,7 +15,6 @@ jobs:
           node-version: "16.x"
       - name: Install dependencies
         run: npm install
-     
 
   deploy:
     runs-on: ubuntu-latest
