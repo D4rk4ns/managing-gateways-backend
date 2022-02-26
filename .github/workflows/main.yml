@@ -9,9 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node:
-          - 14
-          - 16
+        node-version: [14.x, 16.x]
+        mongodb-version: ['4.2', '4.4']
     steps:
       - uses: actions/setup-node@v2
         with:
@@ -26,6 +25,10 @@ jobs:
             ${{ runner.os }}-node-v${{ matrix.node }}-
       - name: Install Dependencies
         run: npm install
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.7.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run All Node.js Tests
         run: npm run test
         
